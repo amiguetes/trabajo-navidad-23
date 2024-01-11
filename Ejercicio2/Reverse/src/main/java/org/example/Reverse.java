@@ -1,13 +1,22 @@
 package org.example;
 
+import java.util.Scanner;
+
 /**
  * Hello world!
  *
  */
-public class App 
+public class Reverse 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Scanner sc = new Scanner(System.in);
+        String line = "";
+
+        while (!(line = sc.nextLine()).equalsIgnoreCase("stop")) {
+            StringBuilder sb = new StringBuilder(line);
+            System.out.println(sb.reverse().toString());
+        }
+        sc.close();
     }
 }
