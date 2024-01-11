@@ -3,9 +3,13 @@ package org.example;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.io.*;
-/**
- * Hello world!
- *
+/** 
+ * Ejercicio 1 de la práctica 2 de la asignatura de Programación de Servicios y Procesos
+ * 
+ * El programa recibe como argumentos un comando y sus argumentos y lo ejecuta.
+ * 
+ * Toda la información asociada al desarrollo de esta clase se encuentra en la issue: https://github.com/amiguetes/trabajo-navidad-23/issues/1
+ * 
  */
 public class App 
 {
@@ -25,7 +29,7 @@ public class App
             Process hijo = pb.start();
             
             if (!hijo.waitFor(2, TimeUnit.SECONDS)){
-                System.out.println("El comando ha tardado más de 2 segundos en ejecutarse");
+                System.err.println("El comando ha tardado más de 2 segundos en ejecutarse y no ha finalizado");
                 hijo.destroy();
                 System.exit(1);
             }
