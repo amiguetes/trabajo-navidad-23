@@ -37,13 +37,24 @@ public class App
 
                 while (sc.hasNextLine()) {
                     String line = sc.nextLine();
+                    System.out.println(line);
                     pw.println(line);
                     
                 }
                 sc.close();
                 pw.close();
             } else {
-                System.out.println("El comando ha devuelto un código de error");
+                System.err.println("El comando ha devuelto un código de error");
+                System.err.println("A continuación se muestra la salida de error del comando");
+
+                Scanner sc = new Scanner(hijo.getErrorStream());
+                
+                while (sc.hasNextLine()) {  
+                    String line = sc.nextLine();
+                    System.err.println(line);
+                    
+                }
+
                 System.exit(1);
             }
 
