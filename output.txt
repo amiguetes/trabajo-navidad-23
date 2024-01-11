@@ -1,0 +1,8 @@
+total 32
+drwxrwxr-x 4 arturo arturo 4096 ene 11 07:48 Ejercicio1
+drwxrwxr-x 4 arturo arturo 4096 ene 11 07:47 Ejercicio2
+drwxrwxr-x 4 arturo arturo 4096 ene 11 07:48 Ejercicio3
+-rw-rw-r-- 1 arturo arturo  390 ene 11 08:12 output.txt
+-rw-rw-r-- 1 arturo arturo  878 ene 11 07:47 pom.xml
+-rw-rw-r-- 1 arturo arturo 5501 ene 11 07:47 readme.md
+drwxrwxr-x 4 arturo arturo 4096 ene 11 07:47 src
