@@ -7,7 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-@Disabled("Hasta que encuentre como hacerlo funcionar en maven")
+
 public class ReverseTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -23,8 +23,8 @@ public class ReverseTest {
         System.setOut(originalOut);
     }
 
- 
-    private void testReverse() {
+    @Test
+    public void testReverse() {
         final String LINE_SEPARATOR = System.lineSeparator();
         String hello = "hello";
         String world = "world";
