@@ -1,7 +1,7 @@
 package org.example;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Ejercicio2
 {
@@ -22,15 +22,18 @@ public class Ejercicio2
 
         ProcessBuilder pb = new ProcessBuilder(process_path.split(" "));
 
-        pb.inheritIO();
-
         try {
-            pb.start().waitFor();
-        } catch (InterruptedException | IOException e) {
-            
-            e.printStackTrace();
+            Process reverse = pb.start();
+
+            try (Scanner entradaUsuario = new Scanner(System.in)){
+
+            }
+
+
+        } catch (IOException e) {
+            System.err.println("Error al ejecutar el proceso de Reverse en la ruta: "+reverse_jar_location);
+            System.err.println(e.getLocalizedMessage());
+            System.exit(1);
         }
-
-
     }
 }
