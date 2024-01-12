@@ -24,15 +24,19 @@ public class ReverseTest {
 
     @Test
     public void testReverse() {
-        String input = "hello\nworld\nstop\n";
+        final String LINE_SEPARATOR = System.lineSeparator();
+        String hello = "hello";
+        String world = "world";
+        String stop = "stop";
+        String input = hello + LINE_SEPARATOR + world + LINE_SEPARATOR + stop + LINE_SEPARATOR;
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         Reverse.main(new String[]{});
 
-        String[] lines = outContent.toString().split(System.lineSeparator());
-        assertEquals("olleh", lines[0]);
-        assertEquals("dlrow", lines[1]);
+        String[] lines = outContent.toString().split(LINE_SEPARATOR);
+        assertEquals((new StringBuilder(hello)).reverse().toString(),lines[0]);
+        assertEquals((new StringBuilder(world)).reverse().toString(), lines[1]);
     }
 }
 
