@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,6 +19,16 @@ public class Ejercicio2
     public static void main( String[] args )
     {
         String reverse_jar_location = args.length > 0 ? args[0] : DEFAULT_REVERSE_JAR_LOCATION;
+
+        if (!(new File(reverse_jar_location)).exists()) {
+            System.err.println("El fichero " + reverse_jar_location + " no existe ");
+
+            if (reverse_jar_location.equalsIgnoreCase(DEFAULT_REVERSE_JAR_LOCATION)){
+                System.err.println("Se ha utilizado la ruta por defecto al Reverse.jar, esto puede significar que no se le ha pasado como parámetro al ejecutar Ejercicio2 la ruta del Reverse.jar");
+            }
+
+            System.exit(1);
+        }
 
         String process_path = JAVA_JAR_COMMAND + reverse_jar_location;
 
@@ -61,6 +72,7 @@ public class Ejercicio2
             System.exit(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            System.exit(1);
         }
     }
 }
