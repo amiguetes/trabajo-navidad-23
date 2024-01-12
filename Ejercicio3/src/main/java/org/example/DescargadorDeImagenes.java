@@ -8,7 +8,7 @@ import java.util.regex.*;
 
 public class DescargadorDeImagenes {
 
-    private static final String IMAGE_PATH = "imagenes";
+    private static final String IMAGE_PATH = "imagenesDescargadas";
 
     public static void main(String[] args) throws IOException, InterruptedException {
         String url = "https://portal.edu.gva.es/cipfpbatoi/";
@@ -49,15 +49,12 @@ public class DescargadorDeImagenes {
         return urlsDeImagenes.toArray(new String[0]);
     }
 
-    public static void descargarImagenesPorURL(String[] urlsImagenes) throws MalformedURLException{
+    public static void descargarImagenesPorURL( String[] urlsImagenes) throws MalformedURLException{
 
         File imagenes = new File(IMAGE_PATH);
 
         if (!imagenes.exists()){
-            if (imagenes.mkdir()){
-                System.err.println("No se ha podido crear el directorio: " + IMAGE_PATH);
-                System.exit(1);
-            } 
+            imagenes.mkdir();   
         } else {
             if (!imagenes.isDirectory()){
                 System.err.println( IMAGE_PATH + " Existe pero no es un directorio");
@@ -71,9 +68,10 @@ public class DescargadorDeImagenes {
         for (int i = 0; i < pb.length; i++) {
 
             URL url = new URL(urlsImagenes[i]);
+            String path = url.getPath();
             
-            pb[i] = new ProcessBuilder("/usr/bin/curl", "-s", "-X", "GET", urlsImagenes[i]);
-            pb[i].redirectOutput(new File(imagenes.getName() + File.pathSeparator +  url.getFile()));
+            pb[i] = new ProcessBuilder("/usr/bin/curl", "-s", "-X", "GET", url.toString());
+            pb[i].redirectOutput(new File(imagenes.getName() + File.separator +  path.substring(path.lastIndexOf('/') + 1)));
 
             try {
                 process[i] = pb[i].start();

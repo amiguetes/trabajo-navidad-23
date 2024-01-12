@@ -40,3 +40,4 @@ build/
 ### Ficheros de Trabajo ###
 output.txt
 reverses.txt
+imagenesDescargadas/*
